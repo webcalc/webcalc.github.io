@@ -44,16 +44,27 @@ function renderHistory() {
         row.innerHTML += "<td>" + history.result + "</td>";
 
         historyList.appendChild(row);
+        checkHistory();
     }
+
 }
 
-let addToClass = document.getElementById("clearHistory");
-const clearButton = document.querySelector("#clearHistory");
+let clearButton = document.getElementById("clearHistory");
+
 if (localStorage.getItem !== undefined) {
     clearButton.addEventListener('click', function(event) {
         localStorage.removeItem(cacheKey);
         renderHistory();
+        checkHistory();
     });
+}
+
+function checkHistory() {
+    if (localStorage.length < 1) {
+        clearButton.className = "disabled";
+    } else {
+        clearButton.className = "clear_history";
+    }
 }
 
 renderHistory();

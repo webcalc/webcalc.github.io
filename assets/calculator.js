@@ -41,7 +41,7 @@ function handleOperator(operator) {
         calculator.waitingForSecondNumber = true;
         calculator.firstNumber = calculator.displayNumber;
     } else {
-        alert('Operator sudah ditetapkan');
+        alert('Operator has been set');
     }
 }
 
