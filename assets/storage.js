@@ -43,7 +43,7 @@ function renderHistory() {
         row.innerHTML += "<td>" + history.secondNumber + "</td>";
         row.innerHTML += "<td>" + history.result + "</td>";
 
-        historyList.appendChild(row);
+        historyList.appendChild(row); // Add child for calculation history
         checkHistory();
     }
 
@@ -52,6 +52,7 @@ function renderHistory() {
 let clearButton = document.getElementById("clearHistory");
 
 if (localStorage.getItem !== undefined) {
+    // Action for the button to remove current Local Storage
     clearButton.addEventListener('click', function(event) {
         localStorage.removeItem(cacheKey);
         renderHistory();
@@ -59,6 +60,7 @@ if (localStorage.getItem !== undefined) {
     });
 }
 
+// Check for the button to enable or disable
 function checkHistory() {
     if (localStorage.length < 1) {
         clearButton.className = "disabled";
@@ -67,4 +69,4 @@ function checkHistory() {
     }
 }
 
-renderHistory();
+renderHistory(); // Render current history

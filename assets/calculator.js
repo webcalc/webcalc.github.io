@@ -5,10 +5,14 @@ const calculator = {
     waitingForSecondNumber: false
 };
 
+
+// Show display for number
 function updateDisplay() {
     document.querySelector("#displayNumber").innerText = calculator.displayNumber;
 }
 
+
+// Remove current calculation
 function clearCalculator() {
     calculator.displayNumber = '0';
     calculator.operator = null;
@@ -16,6 +20,8 @@ function clearCalculator() {
     calculator.waitingForSecondNumber = false;
 }
 
+
+// Input number
 function inputDigit(digit) {
     if (calculator.waitingForSecondNumber && calculator.firstNumber === calculator.displayNumber) {
         calculator.displayNumber = digit;
